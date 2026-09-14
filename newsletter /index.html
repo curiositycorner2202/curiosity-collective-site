@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Curiosity Corner — Stories Worth Digging For</title>
+<meta name="theme-color" content="#f5f1e8" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5f1e8;
+    --paper-2:#ece5d3;
+    --ink:#1c1a17;
+    --ink-soft:#5a5348;
+    --teal:#2f6f62;
+    --teal-dark:#205046;
+    --coral:#c9603f;
+    --line:#d8cfb8;
+    --font-display:'Fraunces', serif;
+    --font-body:'Inter', sans-serif;
+    --max:640px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--font-body); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{ font-family:var(--font-display); margin:0; font-weight:500; }
+  p{ margin:0; }
+  input{ font-family:var(--font-body); }
+  a{ color:var(--teal-dark); }
+  input:focus-visible, button:focus-visible, a:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 1.5rem; }
+
+  header{ padding:3rem 0 0; }
+  .masthead-row{ display:flex; align-items:center; justify-content:center; gap:2rem; }
+  .masthead{
+    font-family:var(--font-display); font-size:1rem; font-weight:600;
+    letter-spacing:.14em; color:var(--teal-dark); text-align:center;
+  }
+  .nav-link{
+    font-size:.85rem; font-weight:500; color:var(--ink-soft); text-decoration:none;
+  }
+  .nav-link:hover{ color:var(--teal-dark); }
+
+  .hero{ padding:3rem 0 3.5rem; text-align:center; }
+  .hero-title{
+    font-size:clamp(2rem, 6vw, 3rem); line-height:1.1; letter-spacing:-.01em;
+  }
+  .hero-sub{
+    max-width:480px; margin:1.25rem auto 0; font-size:1.05rem; color:var(--ink-soft);
+  }
+
+  .signup{
+    margin-top:2.25rem; display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center;
+  }
+  .signup input[type=email]{
+    flex:1 1 260px; max-width:340px; padding:.9rem 1.1rem;
+    border:1.5px solid var(--line); background:#fff; color:var(--ink);
+    font-size:.98rem; border-radius:3px; min-height:48px;
+  }
+  .signup button{
+    background:var(--coral); color:#fff; border:none; border-radius:3px;
+    padding:.9rem 1.6rem; font-size:.95rem; font-weight:600; font-family:var(--font-body);
+    cursor:pointer; min-height:48px;
+  }
+  .signup button:hover{ background:#b0512f; }
+  .signup-note{ font-size:.8rem; color:var(--ink-soft); margin-top:.75rem; }
+  .signup-confirm{ font-size:.95rem; color:var(--teal-dark); font-weight:500; margin-top:1.25rem; display:none; }
+  .signup-confirm.show{ display:block; }
+
+  .divider{ border:none; border-top:1px solid var(--line); margin:0; }
+
+  .values{ padding:3rem 0; }
+  .value-item{ padding:1.5rem 0; border-bottom:1px solid var(--line); }
+  .value-item:last-child{ border-bottom:none; }
+  .value-title{
+    font-family:var(--font-display); font-size:1.15rem; margin-bottom:.5rem; color:var(--teal-dark);
+  }
+  .value-body{ font-size:.95rem; color:var(--ink-soft); }
+
+  .archive{ padding:3rem 0 3.5rem; }
+  .archive-heading{ font-size:clamp(1.5rem, 4vw, 2rem); margin-bottom:.5rem; }
+  .archive-sub{ color:var(--ink-soft); font-size:.95rem; margin-bottom:2rem; }
+  .archive-item{
+    padding:1.5rem 0; border-bottom:1px solid var(--line);
+    display:block; text-decoration:none; color:inherit;
+  }
+  .archive-item:last-child{ border-bottom:none; }
+  .archive-date{ font-size:.78rem; letter-spacing:.04em; color:var(--coral); margin-bottom:.4rem; }
+  .archive-title{ font-family:var(--font-display); font-size:1.2rem; margin-bottom:.4rem; }
+  .archive-item:hover .archive-title{ color:var(--teal-dark); }
+  .archive-summary{ font-size:.92rem; color:var(--ink-soft); }
+  .archive-empty{ color:var(--ink-soft); font-size:.95rem; padding:1rem 0; }
+
+  footer{
+    background:var(--paper-2); padding:3.5rem 0 4rem; text-align:center; margin-top:2rem;
+  }
+  .footer-title{ font-size:1.5rem; margin-bottom:.75rem; }
+  .footer-sub{ color:var(--ink-soft); font-size:.95rem; max-width:420px; margin:0 auto; }
+  .footer-meta{ font-size:.8rem; color:var(--ink-soft); margin-top:2.5rem; }
+
+  @media (max-width:480px){
+    .hero{ padding:2.5rem 0 2.5rem; }
+    .signup{ flex-direction:column; align-items:stretch; }
+    .signup input[type=email]{ max-width:none; }
+    .masthead-row{ gap:1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="masthead-row">
+    <p class="masthead">CURIOSITY CORNER</p>
+    <a href="#archive" class="nav-link">All Stories</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1 class="hero-title">Stories worth digging for.</h1>
+    <p class="hero-sub">A dispatch on hidden history, unsolved cases, and the stories most people walk right past — written by the team behind Curiosity Corner.</p>
+
+    <form class="signup" id="signupForm">
+      <input type="email" id="signupEmail" placeholder="you@email.com" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="signup-note">Free. No spam. Unsubscribe anytime.</p>
+    <p class="signup-confirm" id="signupConfirm">You're in — the next dispatch lands in your inbox soon.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="values wrap">
+    <div class="value-item">
+      <p class="value-title">One story at a time</p>
+      <p class="value-body">No fluff, no filler — just the parts of history that actually stayed with us.</p>
+    </div>
+    <div class="value-item">
+      <p class="value-title">First access to live events</p>
+      <p class="value-body">Subscribers hear about scavenger hunts and live investigations before anyone else.</p>
+    </div>
+    <div class="value-item">
+      <p class="value-title">Written by people who actually dig</p>
+      <p class="value-body">Every story starts with real archives, real interviews, and real on-the-ground research.</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="archive wrap" id="archive">
+    <h2 class="archive-heading">All Stories</h2>
+    <p class="archive-sub">Everything published so far, newest first.</p>
+    <div id="archiveList"></div>
+    <p class="archive-empty" id="archiveEmpty" style="display:none;">Nothing published yet — the first story's coming soon.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2 class="footer-title">Get the next one.</h2>
+    <p class="footer-sub">Join the list — one email, nothing you didn't ask for.</p>
+    <form class="signup" id="signupFormFooter">
+      <input type="email" id="signupEmailFooter" placeholder="you@email.com" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="footer-meta">Curiosity Corner Media</p>
+  </div>
+</footer>
+
+<script>
+  // ---------------------------------------------------------------
+  // This list is separate from the scavenger hunt's "Email List" —
+  // newsletter signups land in their own Klaviyo list so the two
+  // audiences never mix.
+  //
+  // To add a new story to the archive below, insert a row into the
+  // "newsletter_stories" table in Supabase (project: story-hunt).
+  // No code changes or redeploys needed.
+  // ---------------------------------------------------------------
+  const SUPABASE_URL = "https://uthqwotgivyixvrexfrt.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_b8iIz9u6W0YGHBnEJvXw6g_INjgCOGA";
+  const KLAVIYO_PUBLIC_KEY = "YrH9yV";
+  const KLAVIYO_LIST_ID = "RTNBKQ"; // "Curiosity Corner Newsletter"
+
+  function subscribeToKlaviyo(email){
+    return fetch(`https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'revision': '2026-07-15' },
+      body: JSON.stringify({
+        data: {
+          type: 'subscription',
+          attributes: {
+            profile: { data: { type: 'profile', attributes: {
+              email: email,
+              subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } }
+            }}}
+          },
+          relationships: { list: { data: { type: 'list', id: KLAVIYO_LIST_ID } } }
+        }
+      })
+    });
+  }
+
+  function wireForm(formId, emailId){
+    const form = document.getElementById(formId);
+    const confirm = document.getElementById('signupConfirm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const email = document.getElementById(emailId).value.trim();
+      if(!email) return;
+      subscribeToKlaviyo(email).catch(() => {});
+      form.style.display = 'none';
+      if(confirm) confirm.classList.add('show');
+    });
+  }
+
+  wireForm('signupForm', 'signupEmail');
+  wireForm('signupFormFooter', 'signupEmailFooter');
+
+  function escapeHtml(str){
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function formatDate(dateStr){
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  async function loadArchive(){
+    const listEl = document.getElementById('archiveList');
+    const emptyEl = document.getElementById('archiveEmpty');
+    try{
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/newsletter_stories?select=*&is_active=eq.true&order=published_date.desc`, {
+        headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+      });
+      const stories = await res.json();
+      if(!stories.length){
+        emptyEl.style.display = 'block';
+        return;
+      }
+      stories.forEach(story => {
+        const el = document.createElement(story.url ? 'a' : 'div');
+        el.className = 'archive-item';
+        if(story.url){ el.href = story.url; el.target = '_blank'; el.rel = 'noopener'; }
+        el.innerHTML = `
+          <p class="archive-date">${formatDate(story.published_date)}</p>
+          <p class="archive-title">${escapeHtml(story.title)}</p>
+          <p class="archive-summary">${escapeHtml(story.summary)}</p>
+        `;
+        listEl.appendChild(el);
+      });
+    } catch(err){
+      emptyEl.textContent = 'Something went wrong loading the archive — try refreshing.';
+      emptyEl.style.display = 'block';
+    }
+  }
+
+  loadArchive();
+</script>
+
+</body>
+</html>
